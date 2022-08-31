@@ -12,8 +12,7 @@ using OmniSharp.Extensions.LanguageServer.Protocol.Shared;
 
 namespace OmniSharp.Extensions.LanguageServer.Server.Pipelines
 {
-    public class ResolveCommandPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+    public class ResolveCommandPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest: IRequest<TResponse>
     {
         private readonly ILogger<ResolveCommandPipeline<TRequest, TResponse>> _logger;
         private readonly ILspHandlerDescriptor _descriptor;
